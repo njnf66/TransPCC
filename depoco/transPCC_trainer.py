@@ -26,7 +26,7 @@ torch.autograd.set_detect_anomaly(True)
 class DepocoNetTrainer():
     def __init__(self, config):
         t_start = time.time()
-        # parameters
+        # 参数
         config['git_commit_version'] = str(subprocess.check_output(
             ['git', 'rev-parse', '--short', 'HEAD']).strip())
         self.config = config
@@ -41,7 +41,7 @@ class DepocoNetTrainer():
         self.device = torch.device(
             "cuda:0" if torch.cuda.is_available() else "cpu")
 
-        ### Load Encoder and Decoder ####
+        ### 加载编码器和解码器 ####
         t_model = time.time()
         self.encoder_model = None
         self.decoder_model = None
@@ -49,7 +49,7 @@ class DepocoNetTrainer():
         print(f'Loaded Model ({time.time()-t_model}s)')
 
         ##################################
-        ########## Loss Attributes #######
+        ########## Loss Attributes #######  损失属性
         ##################################
         self.cham_loss = chamfer3D.dist_chamfer_3D.chamfer_3DDist()
         self.pairwise_dist = nn.PairwiseDistance()
