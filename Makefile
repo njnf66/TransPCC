@@ -1,6 +1,6 @@
 IMAGE_NAME=depoco
 TAG=latest
-DATASETS= /media/lwiesmann/WiesmannIPB/data/data_kitti/dataset/submaps/40m_ILEN/
+DATASETS= /yuan/cmj/kitti/sequences/
 
 build:
 	@echo Building docker container $(IMAGE_NAME)
