@@ -13,7 +13,7 @@ test:
 	@nvidia-docker run --rm $(IMAGE_NAME):$(TAG) python3 -c "import torch; print(torch.cuda.is_available())"
 
 run:
-	docker run --rm --runtime=nvidia --gpus all -p 8888:8888 -it -v $(DATASETS):/data $(IMAGE_NAME)
+	docker run --rm --gpus "device=1" -p 8888:8888 -it -v $(DATASETS):/data $(IMAGE_NAME)
 
 clean:
 	@echo Removing docker image...
