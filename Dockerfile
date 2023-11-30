@@ -4,7 +4,7 @@ FROM nvidia/cuda:11.0.3-devel-ubuntu20.04
 # setup environment
 ENV TERM xterm
 ENV DEBIAN_FRONTEND=noninteractive
-ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib/python3.8/dist-packages/torch/lib/
+ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/sugon/anaconda3/envs/cmjpy39/lib/python3.9/site-packages/torch/lib/
 ENV PYTHONPATH=/depoco/submodules/ChamferDistancePytorch/
 
 # Provide a data directory to share data across docker and the host system
@@ -67,9 +67,9 @@ RUN pip3 install \
 
 
 # Install Pytorch with CUDA 11 support
-RUN pip3 install torch===1.7.1+cu110 -f https://download.pytorch.org/whl/torch_stable.html -i https://mirrors.aliyun.com/pypi/simple/ some-package
+RUN pip3 install torch==1.12.1+cu113 -f https://download.pytorch.org/whl/torch_stable.html -i https://mirrors.aliyun.com/pypi/simple/ some-package
 
-RUN pip3 install torchvision===0.8.2+cu110 torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html -i https://mirrors.aliyun.com/pypi/simple/ some-package
+RUN pip3 install torchvision===0.13.1+cu113 torchaudio==0.12.1 -f https://download.pytorch.org/whl/torch_stable.html -i https://mirrors.aliyun.com/pypi/simple/ some-package
 
 # RUN pip3 install \
 #     torch==1.7.1 
