@@ -1,6 +1,6 @@
 IMAGE_NAME=depoco
 TAG=latest
-DATASETS= /yuan/cmj/kitti/sequences/
+DATASETS=/yuan/cmj/data/kitti/sequences
 
 build:
 	@echo Building docker container $(IMAGE_NAME)
